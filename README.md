@@ -1,52 +1,24 @@
 # SMS, Call, and Internet Activity Analysis
-## 1. Introduction
+##  Introduction
 
 This assignment analyzes SMS, call, and internet activity data collected in Milano over three different days in November 2013. The dataset contains information about communication activity aggregated by spatial grid cells and time intervals.
+#### Datasets Used
+The data consists of three CSV files:
+* sms-call-internet-mi-2013-11-02.csv, sms-call-internet-mi-2013-11-04.csv, and sms-call-internet-mi-2013-11-06.csv
 
-The main purpose of this analysis is to clean and merge multiple datasets, prepare an analysis-ready dataset, and explore patterns in communication activity across time and activity types: <br> 
-
-
-### Datasets Used
-
-#### The data consists of three CSV files:
-
-* sms-call-internet-mi-2013-11-02.csv
-
-* sms-call-internet-mi-2013-11-04.csv
-
-* sms-call-internet-mi-2013-11-06.csv
 
 #### Dataset content
 Each file contains communication activity information, about:
 
-* received SMS
-* sent SMS
-* incoming calls
-* outgoing calls
-* Internet activity
+* received SMS, sent SMS, incoming calls, outgoing calls, and Internet activity. 
 
-The datasets represent activity for different three days but share the same structure, which allows them to be combined into a single dataset for analysis.
+## Overview of the Approach
 
-## 2. Approach
+The three datasets were loaded separately and then concatenated into a single dataset since they all shared the same structure. Date and time features were extracted to support time-based analysis. Aggregate columns for total SMS, total calls, and total internet activity were created to simplify analysis.
 
-The analysis was performed in several structured steps:
+## Key Decisions Made
 
-Load the three datasets separately.
-
-Add date and time related columns to support time-based analysis.
-
-Merge all datasets into one combined dataframe.
-
-Clean the data and handle missing values.
-
-Create aggregate activity columns.
-
-Perform exploratory and statistical analysis to answer all required questions.
-
-Summarize findings and interpret results.
-
-This step-by-step approach ensures that the data is clean, consistent, and suitable for analysis before drawing conclusions.
-
+After merging the data, the dataset was checked for missing values. Missing values were handled by filling each column with its mean, which is a robust approach that avoids data loss and reduces bias. This ensured the dataset remained complete and suitable for analysis.
 4. Data Loading and Merging
 
 All three CSV files were loaded using the Pandas library. After loading, a new column was added to each dataset to represent the date associated with the file.
