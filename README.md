@@ -50,7 +50,7 @@ The incoming-to-outgoing ratio for international calls is `1.67`, which means th
 ##### SMS and Call Correlation
 ![call statistics](results/correlation.png)
 
-The correlation between SMS volume and call volume at the grid level is `0.99`. This indicates a very strong positive relationship between SMS and call activity at grid level. This informs that, when sms volume increases, call valume with tend to increase.
+The correlation between SMS volume and call volume at the grid level is `0.99`. This indicates a very strong positive relationship between SMS and call activity at grid level. This informs that, when sms volume increases, call valume will tend to increase.
 ##### Libraries Used
 
 + Python
