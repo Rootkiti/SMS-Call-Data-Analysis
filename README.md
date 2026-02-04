@@ -22,19 +22,6 @@ After merging the data, the dataset was checked for missing values. Missing valu
 
 From the timestamp column, Hour and Date features were drived to support the analysis of hourly patterns, peak activity times, and differences between daytime and nighttime usage.
 
-5.2 Aggregate Activity Columns
-
-The following aggregate columns were created:
-
-total_sms: sum of incoming and outgoing SMS
-
-total_calls: sum of incoming and outgoing calls
-
-total_internet: total internet activity
-
-These columns simplify analysis by allowing total activity comparisons instead of working with multiple raw columns.
-
-
 ## Summary of key findings
  Spatial Coverage
 
@@ -47,104 +34,31 @@ There is `302` unique country codes
 
 ##### Temporal Activity Patterns
 
-The Most common peak hour accross all grids is `18:00` while the lowest activities was found to be `4:00`. Hourly activity follows normal daily routines: usage peaks around `18:00` after work hours, while the lowest activity occurs around `4:00`, when most people are inactive.
-
-##### Call Statistics by Hour
-
-For total call activity, the following statistics were calculated
-![call statistics](results/statis_total_calls_by_hour.png)
+The Most common peak hour accross all grids is `17:00` while the lowest activities was found to be `4:00`. Hourly activity follows normal daily routines: usage peaks around `17:00` after work hours, while the lowest activity occurs around `4:00`, when most people are inactive.
 
 ##### Daytime vs Nighttime Activity
+Most of the activity occurs during daytime hours (6am–8pm), accounting for `78.51%` of the total. In contrast, nighttime activity (8pm–6am) represents only `21.49%`.
 
-Activity was divided into: Daytime: 6:00 AM – 8:00 PM and Nighttime: 8:00 PM – 6:00 AM. The percentage of total activity occurring during each period was calculated.
+##### Domestic vs International Activity
+![call statistics](results/call_pattern.png)
+Domestic and international calls follow a similar hourly pattern; however, they differ in volume. International calls consistently dominate domestic calls across most hours.
 
-Daytime activity percentage:
-__________
+Both call and SMS activity are dominated by international communication. Domestic calls account for `33.11%` of total call volume compared to `66.89%` for international calls, while an even stronger pattern is observed for SMS, with only `24.98%` being domestic and `75.02%` international. Together, these results indicate that cross-border communication consistently outweighs domestic communication across both voice and messaging services.
 
-Nighttime activity percentage:
-__________
+The incoming-to-outgoing ratio for international calls is `1.67`, which means that more international calls are received than made. This shows that the dataset has more inbound international call activity than outbound.
 
-Interpretation of these results:
-__________
+##### SMS and Call Correlation
+![call statistics](results/correlation.png)
 
-10. Domestic vs International Activity
-10.1 Call Timing Comparison
+The correlation between SMS volume and call volume at the grid level is `0.99`. This indicates a very strong positive relationship between SMS and call activity at grid level. This informs that, when sms volume increases, call valume with tend to increase.
+##### Libraries Used
 
-Calls were categorized as:
++ Python
++ Pandas
++ NumPy
++ Matplotlib
++ Seaborn
++ Os
++ zipfile
++ tabulate
 
-Domestic (Italy, country code 39)
-
-International (all other country codes)
-
-Hourly patterns for domestic and international calls were compared to see if they occur at different times of day.
-
-Key differences observed:
-__________
-
-10.2 Call Volume Percentages
-
-Percentage of domestic calls:
-__________
-
-Percentage of international calls:
-__________
-
-10.3 SMS Volume Percentages
-
-Percentage of domestic SMS:
-__________
-
-Percentage of international SMS:
-__________
-
-10.4 Incoming vs Outgoing International Calls
-
-The ratio of incoming to outgoing international calls was calculated.
-
-Incoming to outgoing ratio:
-__________
-
-Interpretation:
-__________
-
-11. Statistical Analysis Using NumPy
-
-NumPy was used to perform statistical comparisons between different conditions, including:
-
-Domestic vs international call volumes
-
-Differences in activity distributions
-
-Statistical method used:
-__________
-
-Key results and interpretation:
-__________
-
-12. Correlation Analysis
-
-To understand the relationship between SMS and call activity, data was aggregated at the grid (CellID) level.
-
-The correlation between total SMS volume and total call volume was calculated.
-
-Correlation value:
-__________
-
-Interpretation of correlation:
-__________
-
-13. Tools and Libraries Used
-
-Python
-
-Pandas
-
-NumPy
-
-Matplotlib
-
-Seaborn
-
-14. Repository Information
-
-All code, analysis, and results are hosted on my GitHub account as required.
